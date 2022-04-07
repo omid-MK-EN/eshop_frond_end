@@ -1,3 +1,3 @@
 import {environment} from "../../environments/environment"
 
-export const domain_name= environment ? "https://":"http://localhost:4200"
+export const domain_name= environment.production ? "https://":"http://localhost:8000"

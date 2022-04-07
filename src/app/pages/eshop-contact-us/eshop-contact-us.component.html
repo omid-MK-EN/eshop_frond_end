@@ -1,4 +1,5 @@
 <div id="contact-page" class="container">
+    <swal [swalOptions]="{ confirmButtonText: 'I understand' }"></swal>
     <div class="bg">
         <div class="row">
             <div class="container">
@@ -15,21 +16,57 @@
                 <div class="contact-form">
                     <h2 class="title text-center">با ما در ارتباط باشیـد</h2>
                     <div class="status alert alert-success" style="display: none"></div>
-                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                    <form (ngSubmit)="handlerContactForm()" [formGroup]="form_group" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
                         <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" required="required" placeholder="نام">
+                            <input formControlName="name" type="text" name="name" class="form-control" required="required" placeholder="نام">
+                            <ul>
+                                <li *ngIf="form_group.get('name')?.hasError('required') && form_group.get('name')?.touched ">
+                                    THIS FIELD IS REQUIRD
+                                </li>
+                                <li *ngIf="form_group.get('name')?.hasError('maxlength') && form_group.get('name')?.touched ">
+                                    THIS FIELD MUST BE max 10 CHARACTER
+                                </li>
+                            </ul>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" name="email" class="form-control" required="required" placeholder="ایمیـل">
+                            <input formControlName="email" type="email" name="email" class="form-control" required="required" placeholder="ایمیـل">
+                            <ul>
+                                <li *ngIf="form_group.get('email')?.hasError('required') && form_group.get('email')?.touched ">
+                                    THIS FIELD IS REQUIRD
+                                </li>
+                                <li *ngIf="form_group.get('email')?.hasError('minlength') && form_group.get('email')?.touched ">
+                                    THIS FIELD MUST BE MIN 13 CHARACTER
+                                </li>
+                                <li *ngIf="form_group.get('email')?.hasError('email') && form_group.get('email')?.touched ">
+                                    INVALID FORMT EMAIL
+                                </li>
+                            </ul>
+
                         </div>
                         <div class="form-group col-md-12">
-                            <input type="text" name="subject" class="form-control" required="required" placeholder="موضـوع">
+                            <input formControlName="title" type="text" name="subject" class="form-control" required="required" placeholder="موضـوع">
+                            <ul>
+                                <li *ngIf="form_group.get('title')?.hasError('required') && form_group.get('title')?.touched ">
+                                    THIS FIELD IS REQUIRD
+                                </li>
+                                <li *ngIf="form_group.get('title')?.hasError('maxlength') && form_group.get('title')?.touched ">
+                                    THIS FIELD MUST BE max 15 CHARACTER
+                                </li>
+                            </ul>
                         </div>
                         <div class="form-group col-md-12">
-                            <textarea name="message" id="message" required="" class="form-control" rows="8" placeholder="پیغـام شمـا"></textarea>
+                            <textarea formControlName="descriptions" name="message" id="message" required="" class="form-control" rows="8" placeholder="پیغـام شمـا"></textarea>
+                            <ul>
+                                <li *ngIf="form_group.get('descriptions')?.hasError('required') && form_group.get('descriptions')?.touched ">
+                                    THIS FIELD IS REQUIRD
+                                </li>
+                                <li *ngIf="form_group.get('descriptions')?.hasError('minlength') && form_group.get('descriptions')?.touched ">
+                                    THIS FIELD MUST BE MIN 10 CHARACTER
+                                </li>
+                            </ul>
                         </div>
                         <div class="form-group col-md-12">
-                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">
+                            <button class="btn btn-primary pull-right" type="submit" [disabled]="!form_group.valid">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -38,35 +75,22 @@
                 <div class="contact-info">
                     <h2 class="title text-center">اطلاعات تماس</h2>
                     <address>
-                        <p>گـروه تکنوگـرافی 1614</p>
-                        <p>ایـران - آذربایجـان غربـی - خـوی</p>
-                        <p>مجتـمع تجـاری تفریحـی شمس - طبـقه 2 - پلاک 54</p>
-                        <p>تلفن تماس : 80 21 24 36 044</p>
-                        <p>فکس : 80 21 24 36 044</p>
-                        <p style="font-family: tahoma;">ایمیـل : info@1614GP.ir</p>
+                       <p>{{ info_about_us.adress }}</p>
+                        <p>تلفن تماس : {{ info_about_us.tel }}</p>
+                        <p>فکس :{{ info_about_us.fax }}</p>
+                        <p style="font-family: tahoma;">ایمیـل : {{ info_about_us.email }}</p>
                     </address>
                     <div class="social-networks">
                         <h2 class="title text-center">شبکـه های اجتـماعی</h2>
                         <span class="socials-share share">
                                 <ul>
-                                    <a href="#">
+                                    <a [href]="social_media.url" *ngFor="let social_media of social_medias" >
                                         <li>
                                             <label>بلـه</label>
-                                            <img src="assets/images/product-details/Bale.png">
+                                            <img width="30" height="30" [src]="social_media.image">
                                         </li>
                                     </a>
-                                    <a href="#">
-                                        <li>
-                                            <label>سـروش</label>
-                                            <img src="assets/images/product-details/Soroush.png">
-                                        </li>
-                                    </a>
-                                    <a href="#">
-                                        <li>
-                                            <label>اینستاگرام</label>
-                                            <img src="assets/images/product-details/Instagram.png">
-                                        </li>
-                                    </a>
+                                   
                                 </ul>
                             </span>
                     </div>

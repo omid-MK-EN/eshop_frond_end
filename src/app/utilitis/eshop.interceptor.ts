@@ -11,7 +11,7 @@ export class EshopInterceptor implements HttpInterceptor {
       
       url: domain_name + req.url
     });
-   
+    // alert(domain_name)
     return next.handle(changeRequest);
   }
 

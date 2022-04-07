@@ -18,6 +18,8 @@ import { RetailSalesComponent } from './pages/eshop-index/retail-sales/retail-sa
 import { WholeSalesComponent } from './pages/eshop-index/whole-sales/whole-sales.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EshopInterceptor } from './utilitis/eshop.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { EshopInterceptor } from './utilitis/eshop.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:EshopInterceptor,multi:true}

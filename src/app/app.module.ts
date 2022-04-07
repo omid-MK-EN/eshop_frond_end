@@ -16,6 +16,8 @@ import { BestsellersProductsComponent } from './pages/eshop-index/bestsellers-pr
 import { CategoriesProductsComponent } from './pages/eshop-index/categories-products/categories-products.component';
 import { RetailSalesComponent } from './pages/eshop-index/retail-sales/retail-sales.component';
 import { WholeSalesComponent } from './pages/eshop-index/whole-sales/whole-sales.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EshopInterceptor } from './utilitis/eshop.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { WholeSalesComponent } from './pages/eshop-index/whole-sales/whole-sales
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:EshopInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

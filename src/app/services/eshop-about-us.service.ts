@@ -10,7 +10,8 @@ export class EshopAboutUsService {
 
   constructor(private http:HttpClient) { }
 
-  getEshopAboutUs(): Observable<IEshopAboutUs[]> {
+  getEshopAboutUs(): Observable<IEshopAboutUs[]>
+   {
     return this.http.get<IEshopAboutUs[]>('/about_us');
 }
 

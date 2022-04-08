@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { IProduct, IProperty } from './../../interfaces/product.interface';
 
 @Component({
   selector: 'app-all-products',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllProductsComponent implements OnInit {
 
-  constructor() { }
+  all_products:IProperty[]= []
+  pages:number=0;
+  next:string=""
+  prev:string=""
+  constructor(private productService:ProductService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    this.productService.getActiveAllProduct()
+    .subscribe(products=>
+    {
+     console.log(products)
+     this.pages=products.results.length
+     console
+     this.next=products.next;
+     this.prev= this.prev
+     this.all_products=products.results
+    })
+
   }
 
 }

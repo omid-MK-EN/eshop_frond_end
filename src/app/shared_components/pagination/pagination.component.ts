@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IProperty } from './../../interfaces/product.interface';
 
 @Component({
   selector: 'app-pagination',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
+  @Input() all_products:IProperty[]= []
   constructor() { }
 
   ngOnInit(): void {
+  }
+  handlerPaginate(num:number)
+  {
+    
+
   }
 
 }

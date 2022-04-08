@@ -10,9 +10,9 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
 
-  getActiveAllProduct():Observable<IProduct[]>
+  getActiveAllProduct():Observable<IProduct>
   {
-    return this.http.get<IProduct[]>('/products');
+    return this.http.get<IProduct>(`/products`);
   }
   
 

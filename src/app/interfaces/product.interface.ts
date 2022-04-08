@@ -1,4 +1,5 @@
-export interface IProduct
+
+export interface IProperty
 {
     title:string;
     descriptions:string;
@@ -19,7 +20,18 @@ export interface IProduct
     is_popular_product:boolean;
     is_exit:boolean; 
     active:boolean;
+}
+
+
+export interface IProduct
+{
+    count:number;
+    next:string;
+    previous:string;
+    results:IProperty[]
+    
 
 }
+
 
 

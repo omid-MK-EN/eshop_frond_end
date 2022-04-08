@@ -1,10 +1,12 @@
 <ul class="pagination">
     <li>
-        <a href="">
-            next</a>
+        <button href="">
+            next</button>
     </li>
-    <li class="active"><a href="">1</a></li>
-    <li><a href="">2</a></li>
-    <li><a href="">3</a></li>
-    <li><a href="">previous</a></li>
+    <ng-container *ngFor="let product of all_products;let num=index">
+        <li><button (click)="handlerPaginate(num)" href="" class="active">{{ num+1 }}</button></li>
+    </ng-container>
+
+
+    <li><button href="">previous</button></li>
 </ul>

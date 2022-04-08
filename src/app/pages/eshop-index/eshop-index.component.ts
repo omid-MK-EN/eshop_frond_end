@@ -11,10 +11,10 @@ export class EshopIndexComponent implements OnInit {
   constructor(private ProductService:ProductService) { }
 
   ngOnInit(): void {
-    this.ProductService.getActiveAllProduct().subscribe(products=>
-    {
-      console.log(products)
-    })
+    // this.ProductService.getActiveAllProduct().subscribe(products=>
+    // {
+    //   console.log(products)
+    // })
   }
 
 }

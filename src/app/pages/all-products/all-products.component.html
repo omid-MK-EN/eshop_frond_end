@@ -6,10 +6,11 @@
                 <div class="features_items">
                     <!--features_items-->
                     <h2 class="title text-center">محصولات خرده</h2>
-                    <app-single-product></app-single-product>
+
+                    <app-single-product [product]="product" *ngFor="let product of all_products"></app-single-product>
 
 
-                    <app-pagination></app-pagination>
+                    <app-pagination [all_products]="all_products"></app-pagination>
                 </div>
                 <!--features_items-->
             </div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllProductsComponent } from './pages/all-products/all-products.component';
 import { EshopAboutUsComponent } from './pages/eshop-about-us/eshop-about-us.component';
 import { EshopContactUsComponent } from './pages/eshop-contact-us/eshop-contact-us.component';
 import { EshopIndexComponent } from './pages/eshop-index/eshop-index.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"about-us", component:EshopAboutUsComponent},
   {path:"login", component:EshopLoginComponent},
   {path:"register", component:EshopRegisterComponent},
+  {path:"all-products", component:AllProductsComponent},
   {path:"notfound", component:EshopNotfoundComponent},
   {path:"**", redirectTo:"notfound"}
 ];

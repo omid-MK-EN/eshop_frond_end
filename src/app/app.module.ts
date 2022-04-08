@@ -20,6 +20,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EshopInterceptor } from './utilitis/eshop.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AllProductsComponent } from './pages/all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     BestsellersProductsComponent,
     CategoriesProductsComponent,
     RetailSalesComponent,
-    WholeSalesComponent
+    WholeSalesComponent,
+    AllProductsComponent
   ],
   imports: [
     BrowserModule,

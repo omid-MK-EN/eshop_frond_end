@@ -7,6 +7,7 @@ import { EshopIndexComponent } from './pages/eshop-index/eshop-index.component';
 import { EshopLoginComponent } from './pages/eshop-login/eshop-login.component';
 import { EshopNotfoundComponent } from './pages/eshop-notfound/eshop-notfound.component';
 import { EshopRegisterComponent } from './pages/eshop-register/eshop-register.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'home',pathMatch:'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"login", component:EshopLoginComponent},
   {path:"register", component:EshopRegisterComponent},
   {path:"all-products", component:AllProductsComponent},
+  {path:"product-details/:id", component:ProductDetailComponent},
   {path:"notfound", component:EshopNotfoundComponent},
   {path:"**", redirectTo:"notfound"}
 ];

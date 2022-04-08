@@ -21,6 +21,12 @@ import { EshopInterceptor } from './utilitis/eshop.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AllProductsComponent } from './pages/all-products/all-products.component';
+import { BrandComponent } from './shared_components/brand/brand.component';
+import { CategoryComponent } from './shared_components/category/category.component';
+import { PaginationComponent } from './shared_components/pagination/pagination.component';
+import { SingleProductComponent } from './shared_components/single-product/single-product.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { SingleReommandProductComponent } from './shared_components/single-reommand-product/single-reommand-product.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,13 @@ import { AllProductsComponent } from './pages/all-products/all-products.componen
     CategoriesProductsComponent,
     RetailSalesComponent,
     WholeSalesComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    BrandComponent,
+    CategoryComponent,
+    PaginationComponent,
+    SingleProductComponent,
+    ProductDetailComponent,
+    SingleReommandProductComponent
   ],
   imports: [
     BrowserModule,

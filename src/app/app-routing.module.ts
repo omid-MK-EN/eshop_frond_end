@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductDetailsGuard } from './guards/product-details.guard';
 import { AllProductsComponent } from './pages/all-products/all-products.component';
 import { EshopAboutUsComponent } from './pages/eshop-about-us/eshop-about-us.component';
 import { EshopContactUsComponent } from './pages/eshop-contact-us/eshop-contact-us.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

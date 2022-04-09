@@ -1,6 +1,7 @@
 
 export interface IProperty
 {
+    id:number;
     title:string;
     descriptions:string;
     slug:string;

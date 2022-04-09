@@ -6,11 +6,58 @@
                 <div class="signup-form">
                     <!--sign up form-->
                     <h2>ثبت نام کاربـر جدیـد</h2>
-                    <form action="#">
-                        <input type="text" placeholder="نام کاربـری">
-                        <input type="email" placeholder="آدرس ایمیـل">
-                        <input type="password" placeholder="رمـز عبـور">
-                        <button type="submit" class="btn btn-default">ثبت نام</button>
+                    <form (ngSubmit)="handlerRegisterForm()" [formGroup]="register_form" action="#">
+                        <input formControlName="username" type="text" placeholder="نام کاربـری">
+                        <ul>
+                            <li class="alert alert-danger" *ngIf="register_form.get('username')?.hasError('required') && register_form.get('username')?.touched ">
+                                THIS FIELD IS REQUIRD
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('username')?.hasError('maxlength') && register_form.get('username')?.touched ">
+                                THIS FIELD MUST BE max 10 CHARACTER
+                            </li>
+                        </ul>
+                        <input formControlName="email" type="email" placeholder="آدرس ایمیـل">
+                        <ul>
+                            <li class="alert alert-danger" *ngIf="register_form.get('email')?.hasError('required') && register_form.get('email')?.touched ">
+                                THIS FIELD IS REQUIRD
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('email')?.hasError('minlength') && register_form.get('email')?.touched ">
+                                THIS FIELD MUST BE MIN 13 CHARACTER
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('email')?.hasError('email') && register_form.get('email')?.touched ">
+                                INVALID FORMT EMAIL
+                            </li>
+                        </ul>
+
+                        <input [style]="!is_match?'border:1px solid red !important;color:red !important':''" formControlName="pass" type="password" placeholder="رمـز عبـور">
+                        <ul>
+                            <li class="alert alert-danger" *ngIf="register_form.get('pass')?.hasError('required') && register_form.get('pass')?.touched">
+                                THIS FIELD IS REQUIRD
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('pass')?.hasError('minlength') && register_form.get('pass')?.touched ">
+                                THIS FIELD MUST BE MIN 8 CHARACTER
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('pass')?.hasError('maxlength') && register_form.get('pass')?.touched ">
+                                THIS FIELD MUST BE MIN 40 CHARACTER
+                            </li>
+                        </ul>
+                        <input [style]="!is_match?'border:1px solid red !important;color:red !important':''" formControlName="pass_conf" type="password" placeholder="رمـز عبـور">
+                        <ul>
+                            <li class="alert alert-danger" *ngIf="register_form.get('pass_conf')?.hasError('required') && register_form.get('pass_conf')?.touched">
+                                THIS FIELD IS REQUIRD
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('pass_conf')?.hasError('minlength') && register_form.get('pass_conf')?.touched ">
+                                THIS FIELD MUST BE MIN 8 CHARACTER
+                            </li>
+                            <li class="alert alert-danger" *ngIf="register_form.get('pass_conf')?.hasError('maxlength') && register_form.get('pass_conf')?.touched ">
+                                THIS FIELD MUST BE MIN 40 CHARACTER
+                            </li>
+                            <li class="alert alert-danger" *ngIf="!is_match ">
+                                PASSWORD AND PASS_CONFRIM NOT EQUAL
+                            </li>
+                        </ul>
+
+                        <button [disabled]="!register_form.valid" type="submit" class="btn btn-default">ثبت نام</button>
                     </form>
                 </div>
                 <!--/sign up form-->

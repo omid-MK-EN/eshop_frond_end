@@ -17,6 +17,7 @@ export class EshopContactUsComponent implements OnInit {
 
   social_medias:ISocialMedia[]=[]
   info_about_us:any;
+  
   form_group:FormGroup=new FormGroup({
     name:new FormControl(null,[Validators.required, Validators.maxLength(10)]),
     title:new FormControl(null,[Validators.required, Validators.maxLength(15)]),

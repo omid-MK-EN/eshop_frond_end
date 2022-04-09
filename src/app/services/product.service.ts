@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable,tap } from 'rxjs';
+import { catchError, Observable,tap } from 'rxjs';
 import { IProduct, IProperty } from './../interfaces/product.interface';
 
 
@@ -35,6 +35,14 @@ export class ProductService {
     
     
   }
+
+  getActiveProduct(id:number):Observable<IProperty>
+  {
+    return this.http.get<IProperty>(`/products/${id}`).pipe(
+      // tap(i=>console.log(i)),
+      
+    )
+  }
   
   getChangePageByNextOrPrev(url:string):Observable<IProduct>
   {
@@ -47,6 +55,8 @@ export class ProductService {
       })
     )
   }
+
+  
 
 
 

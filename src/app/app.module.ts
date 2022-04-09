@@ -28,6 +28,7 @@ import { SingleProductComponent } from './shared_components/single-product/singl
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { SingleReommandProductComponent } from './shared_components/single-reommand-product/single-reommand-product.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { SingleReommandProductComponent } from './shared_components/single-reomm
     PaginationComponent,
     SingleProductComponent,
     ProductDetailComponent,
-    SingleReommandProductComponent
+    SingleReommandProductComponent,
+   
   ],
   imports: [
     BrowserModule,

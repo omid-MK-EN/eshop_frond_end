@@ -10,7 +10,9 @@
                     <app-single-product [product]="product" *ngFor="let product of all_products"></app-single-product>
 
 
-                    <app-pagination [all_products]="all_products"></app-pagination>
+                    <app-pagination (sendAllProducts)="refreshAllProduct($event)">
+
+                    </app-pagination>
                 </div>
                 <!--features_items-->
             </div>

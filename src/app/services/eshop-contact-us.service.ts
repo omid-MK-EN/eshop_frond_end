@@ -21,7 +21,11 @@ export class EshopContactUsService {
     return this.http.post("/contact_us/", body,{'headers':headers})
   }
 
-  getSocialMedias(): Observable<ISocialMedia[]>
+  // getSocialMedias(): Observable<ISocialMedia[]>
+  // {
+  //   return this.http.get<ISocialMedia[]>('/eshop_social_media');
+  // }
+  getSocialMedias():Observable<ISocialMedia[]>
   {
     return this.http.get<ISocialMedia[]>('/eshop_social_media');
   }

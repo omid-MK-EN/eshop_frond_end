@@ -33,5 +33,13 @@ export interface IProduct
 
 }
 
+export interface IData
+{
+    all_products:IProperty[];
+    page_size:number[];
+    prev:string;
+    next:string;
+}
+
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from './../../services/category.service';
+import { ICategory } from './../../interfaces/category.inteface';
 
 @Component({
   selector: 'app-category',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  all_categories:ICategory[]=[]
+  constructor(private categoryService:CategoryService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+
+    // this.categoryService.getActiveBrands().subscribe(categories=>
+    // {
+
+    //   console.log("-------------------")
+    //   console.log(categories)
+    //   console.log("-------------------")
+    //   this.all_categories=categories
+
+    // })
+
+
+
   }
 
 }

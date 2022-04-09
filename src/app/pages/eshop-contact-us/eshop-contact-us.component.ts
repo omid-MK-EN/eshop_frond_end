@@ -27,18 +27,23 @@ export class EshopContactUsComponent implements OnInit {
   
   ngOnInit(): void {
 
-    this.infoService.getEshopAboutUs().subscribe(value=>{
-      if(value.length > 1)
-      {
-        this.info_about_us= value[value.length-1]
-      }
-      this.info_about_us=value[0]
+    this.infoService.getEshopAboutUs().subscribe(values=>
+    {
+      if(values.length > 1)
+    {
+      this.info_about_us= values[values.length-1]
+    }
+    this.info_about_us=values[0]
     })
-    this.contactFormService.getSocialMedias().subscribe(socialMedias=>{
-     
-     this.social_medias= socialMedias
-    })
-
+    // this.contactFormService.getSocialMedias().subscribe(socialMedias=>{
+    //   alert("shood")
+    //  console.log(socialMedias)
+    //  this.social_medias= socialMedias
+    // })
+this.contactFormService.getSocialMedias().subscribe(socialMedias=>{
+  console.log(socialMedias)
+  this.social_medias= socialMedias
+})
    
   }
 

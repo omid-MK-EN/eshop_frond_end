@@ -12,14 +12,25 @@ export class EshopAboutUsComponent implements OnInit {
   constructor(private aboutUsService:EshopAboutUsService) { }
   about_us_info:any;
   ngOnInit(): void {
-    this.aboutUsService.getEshopAboutUs().subscribe(value=>{
-     console.log(value)
-      if(value.length > 1)
+    // this.aboutUsService.getEshopAboutUs().subscribe(value=>{
+    //  console.log(value)
+    //   if(value.length > 1)
+    //   {
+    //     this.about_us_info= value[value.length-1]
+    //   }
+    //   this.about_us_info=value[0]
+    // },er=>{
+    //   console.log(er)
+    // })
+
+    this.aboutUsService.getEshopAboutUs().subscribe(values=>
       {
-        this.about_us_info= value[value.length-1]
+        if(values.length > 1)
+      {
+        this.about_us_info= values[values.length-1]
       }
-      this.about_us_info=value[0]
-    })
+      this.about_us_info=values[0]
+      })
    
   }
 

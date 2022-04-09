@@ -1,4 +1,5 @@
 <div class="container">
+    <swal></swal>
     <section id="form">
         <!--form-->
         <div class="row">
@@ -6,9 +7,33 @@
                 <div class="login-form">
                     <!--login form-->
                     <h2>ورود به حساب کاربـری :</h2>
-                    <form action="#">
-                        <input type="text" placeholder="نام کاربری">
-                        <input type="email" placeholder="آدرس ایمیـل">
+                    <form action="#" (ngSubmit)="handlerLoginForm()" [formGroup]="login_form">
+                        <input formControlName="username" type="text" placeholder="نام کاربری">
+                        <ul>
+                            <li class="alert alert-danger" *ngIf="login_form.get('username')?.hasError('required') && login_form.get('username')?.touched ">
+                                THIS FIELD IS REQUIRD
+                            </li>
+                            <li class="alert alert-danger" *ngIf="login_form.get('username')?.hasError('maxlength') && login_form.get('username')?.touched ">
+                                THIS FIELD MUST BE max 10 CHARACTER
+                            </li>
+                            <li class="alert alert-danger" *ngIf="login_form.get('username')?.hasError('minlength') && login_form.get('username')?.touched ">
+                                THIS FIELD MUST BE min 4 CHARACTER
+                            </li>
+                        </ul>
+
+
+                        <input formControlName="password" type="password" placeholder="آدرس ایمیـل">
+                        <ul>
+                            <li class="alert alert-danger" *ngIf="login_form.get('password')?.hasError('required') && login_form.get('password')?.touched">
+                                THIS FIELD IS REQUIRD
+                            </li>
+                            <li class="alert alert-danger" *ngIf="login_form.get('password')?.hasError('minlength') && login_form.get('password')?.touched ">
+                                THIS FIELD MUST BE MIN 8 CHARACTER
+                            </li>
+                            <li class="alert alert-danger" *ngIf="login_form.get('password')?.hasError('maxlength') && login_form.get('password')?.touched ">
+                                THIS FIELD MUST BE MIN 40 CHARACTER
+                            </li>
+                        </ul>
                         <span>
                             <input type="checkbox" class="checkbox"> 
                             مرا بخاطـر بسپـار
@@ -16,7 +41,7 @@
                         <span>
                             <a href="forget-password.html">رمـز عبـور خود را فراموش کرده ام</a>
                         </span>
-                        <button type="submit" class="btn btn-default">ورود</button>
+                        <button [disabled]="!login_form.valid" type="submit" class="btn btn-default">ورود</button>
                     </form>
                 </div>
                 <!--/login form-->

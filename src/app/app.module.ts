@@ -27,6 +27,7 @@ import { PaginationComponent } from './shared_components/pagination/pagination.c
 import { SingleProductComponent } from './shared_components/single-product/single-product.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { SingleReommandProductComponent } from './shared_components/single-reommand-product/single-reommand-product.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { SingleReommandProductComponent } from './shared_components/single-reomm
     SingleProductComponent,
     ProductDetailComponent,
     SingleReommandProductComponent,
+    DashboardComponent,
    
   ],
   imports: [

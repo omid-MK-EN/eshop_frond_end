@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-whole-sales',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WholeSalesComponent implements OnInit {
 
+  @Input() whole_products:any[]=[] 
   constructor() { }
 
   ngOnInit(): void {

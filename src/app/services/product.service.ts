@@ -73,6 +73,10 @@ export class ProductService {
   }
 
   
+  getActiveProdutHomeComponent()
+  {
+    return this.http.get<IProperty[]>("/products-without-pagination")
+  }
 
 
 

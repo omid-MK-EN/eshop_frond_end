@@ -20,6 +20,7 @@ export interface IProperty
     is_sale_product:boolean;
     is_whole_product:boolean;
     is_popular_product:boolean;
+    is_slider:Boolean;
     is_exit:boolean; 
     active:boolean;
 }

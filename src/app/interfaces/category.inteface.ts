@@ -3,6 +3,8 @@ export interface ICategoryProducts
 {
     id:string;
     title:string
+    price:number;
+    image:string;
 }
 
 export interface ICategory

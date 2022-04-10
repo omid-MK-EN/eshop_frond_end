@@ -10,9 +10,14 @@ export class BrandService {
 
   constructor(private http:HttpClient) { }
 
-  // getActiveBrands():Observable<IBrand[]>
+  getActiveBrands():Observable<IBrand[]>
+  {
+    return this.http.get<IBrand[]>('/product_brands');
+  }
+  
+  // getActiveProductByBrandFilter(brand_id:number)
   // {
-  //   return this.http.get<IBrand[]>('/product_brands');
+  //   this.http.get<IBrand[]>('/product_brands');
   // }
   
 }

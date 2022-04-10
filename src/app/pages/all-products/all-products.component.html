@@ -10,7 +10,7 @@
                     <app-single-product [product]="product" *ngFor="let product of all_products"></app-single-product>
 
 
-                    <app-pagination (sendAllProducts)="refreshAllProduct($event)">
+                    <app-pagination [brand_id]="brand_id" (sendAllProducts)="refreshAllProduct($event)">
 
                     </app-pagination>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="left-sidebar">
                     <app-category></app-category>
 
-                    <app-brand></app-brand>
+                    <app-brand (sendBrand)="filterByBrand($event)"></app-brand>
 
                     <!--/price-range-->
 

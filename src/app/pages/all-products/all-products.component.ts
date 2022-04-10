@@ -10,9 +10,7 @@ import { IProduct, IProperty, IData } from './../../interfaces/product.interface
 export class AllProductsComponent implements OnInit {
 
   all_products:IProperty[]= []
-  page_size:number[]=[]
-  next:string=""
-  prev:string=""
+  brand_id!:number;
 
   constructor(private productService:ProductService) { 
    
@@ -32,5 +30,11 @@ export class AllProductsComponent implements OnInit {
   }
   refreshAllProduct(all_products: IProperty[]) {
     this.all_products= all_products
+  }
+  filterByBrand(brand_id:number)
+  {
+    console.log("filter brand is:============")
+    console.log(brand_id)
+    this.brand_id= brand_id
   }
 }

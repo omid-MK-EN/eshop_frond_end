@@ -1,4 +1,4 @@
-import { Component, Output, OnInit,EventEmitter } from '@angular/core';
+import { Component, Output, OnInit,EventEmitter, Input, SimpleChanges } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { IProperty } from './../../interfaces/product.interface';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class PaginationComponent implements OnInit {
 
   @Output() sendAllProducts = new EventEmitter<IProperty[]>();
+  @Input() brand_id:number=0;
   constructor(private productService:ProductService,private router:Router) { }
 
   all_products:IProperty[]= []
@@ -66,6 +67,28 @@ export class PaginationComponent implements OnInit {
  
      })
 
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    
+    
+  
+    if(changes['brand_id'].currentValue)
+    {
+      console.log("men change hasten")
+      this.productService.getActiveAllProduct(this.brand_id).subscribe(()=>{
+        this.all_products= this.productService.all_products
+        this.next = this.productService.next
+        this.prev = this.productService.prev
+        this.page_size= this.productService.page_size
+        this.sendAllProducts.emit(this.all_products);
+        // console.log(this.next)
+        // console.log(this.prev)
+      })
+    
+    
+     
+    }
+    
   }
 
 }

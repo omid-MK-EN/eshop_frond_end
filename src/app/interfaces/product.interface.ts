@@ -16,6 +16,7 @@ export interface IProperty
     color:number[];
     size:number[];
     favorite:number[];
+    product_related:string[];
     is_sale_product:boolean;
     is_whole_product:boolean;
     is_popular_product:boolean;

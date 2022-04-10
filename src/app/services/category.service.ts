@@ -10,8 +10,8 @@ export class CategoryService {
 
   constructor(private http:HttpClient) { }
 
-  // getActiveBrands():Observable<ICategory[]>
-  // {
-  //   return this.http.get<ICategory[]>('/product_categories');
-  // }
+  getActiveCategories():Observable<ICategory[]>
+  {
+   return this.http.get<ICategory[]>('/product_categories')
+  }
 }

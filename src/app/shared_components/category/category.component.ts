@@ -15,16 +15,14 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void 
   {
 
-    // this.categoryService.getActiveBrands().subscribe(categories=>
-    // {
 
-    //   console.log("-------------------")
-    //   console.log(categories)
-    //   console.log("-------------------")
-    //   this.all_categories=categories
-
-    // })
-
+    this.categoryService.getActiveCategories().subscribe(categories=>{
+      
+      this.all_categories= categories
+      console.log(this.all_categories)
+      console.log(Array.isArray(this.all_categories[0].products[0].id))
+      
+    })
 
 
   }

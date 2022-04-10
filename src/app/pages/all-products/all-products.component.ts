@@ -33,8 +33,8 @@ export class AllProductsComponent implements OnInit {
   }
   filterByBrand(brand_id:number)
   {
-    console.log("filter brand is:============")
-    console.log(brand_id)
+    // console.log("filter brand is:============")
+    // console.log(brand_id)
     this.brand_id= brand_id
   }
 }

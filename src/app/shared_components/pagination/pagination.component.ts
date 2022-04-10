@@ -74,7 +74,7 @@ export class PaginationComponent implements OnInit {
   
     if(changes['brand_id'].currentValue)
     {
-      console.log("men change hasten")
+      // console.log("men change hasten")
       this.productService.getActiveAllProduct(this.brand_id).subscribe(()=>{
         this.all_products= this.productService.all_products
         this.next = this.productService.next
